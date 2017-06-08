@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AB01Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AB01">
+    <id column="ABA006" jdbcType="VARCHAR" property="aba006" />
+    <result column="ABA001" jdbcType="VARCHAR" property="aba001" />
+    <result column="ABA002" jdbcType="VARCHAR" property="aba002" />
+    <result column="ABA003" jdbcType="VARCHAR" property="aba003" />
+    <result column="ABA004" jdbcType="VARCHAR" property="aba004" />
+    <result column="ABA005" jdbcType="VARCHAR" property="aba005" />
+    <result column="ABA007" jdbcType="VARCHAR" property="aba007" />
+    <result column="ABA008" jdbcType="VARCHAR" property="aba008" />
+    <result column="ABA009" jdbcType="DECIMAL" property="aba009" />
+    <result column="ABA010" jdbcType="DECIMAL" property="aba010" />
+    <result column="ABA013" jdbcType="VARCHAR" property="aba013" />
+    <result column="ABA014" jdbcType="TIMESTAMP" property="aba014" />
+    <result column="ABA015" jdbcType="VARCHAR" property="aba015" />
+    <result column="ABA016" jdbcType="TIMESTAMP" property="aba016" />
+    <result column="ABA011" jdbcType="CLOB" property="aba011" />
+    <result column="ABA012" jdbcType="CLOB" property="aba012" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    ABA006, ABA001, ABA002, ABA003, ABA004, ABA005, ABA007, ABA008, ABA009, ABA010, ABA013, 
+    ABA014, ABA015, ABA016
+  </sql>
+  <sql id="Blob_Column_List">
+    ABA011, ABA012
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from AB01
+    where ABA006 = #{aba006,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AB01
+    where ABA006 = #{aba006,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AB01">
+    insert into AB01 (ABA006, ABA001, ABA002, 
+      ABA003, ABA004, ABA005, 
+      ABA007, ABA008, ABA009, 
+      ABA010, ABA013, ABA014, 
+      ABA015, ABA016, ABA011, 
+      ABA012)
+    values (#{aba006,jdbcType=VARCHAR}, #{aba001,jdbcType=VARCHAR}, #{aba002,jdbcType=VARCHAR}, 
+      #{aba003,jdbcType=VARCHAR}, #{aba004,jdbcType=VARCHAR}, #{aba005,jdbcType=VARCHAR}, 
+      #{aba007,jdbcType=VARCHAR}, #{aba008,jdbcType=VARCHAR}, #{aba009,jdbcType=DECIMAL}, 
+      #{aba010,jdbcType=DECIMAL}, #{aba013,jdbcType=VARCHAR}, #{aba014,jdbcType=TIMESTAMP}, 
+      #{aba015,jdbcType=VARCHAR}, #{aba016,jdbcType=TIMESTAMP}, #{aba011,jdbcType=CLOB}, 
+      #{aba012,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AB01">
+    insert into AB01
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aba006 != null">
+        ABA006,
+      </if>
+      <if test="aba001 != null">
+        ABA001,
+      </if>
+      <if test="aba002 != null">
+        ABA002,
+      </if>
+      <if test="aba003 != null">
+        ABA003,
+      </if>
+      <if test="aba004 != null">
+        ABA004,
+      </if>
+      <if test="aba005 != null">
+        ABA005,
+      </if>
+      <if test="aba007 != null">
+        ABA007,
+      </if>
+      <if test="aba008 != null">
+        ABA008,
+      </if>
+      <if test="aba009 != null">
+        ABA009,
+      </if>
+      <if test="aba010 != null">
+        ABA010,
+      </if>
+      <if test="aba013 != null">
+        ABA013,
+      </if>
+      <if test="aba014 != null">
+        ABA014,
+      </if>
+      <if test="aba015 != null">
+        ABA015,
+      </if>
+      <if test="aba016 != null">
+        ABA016,
+      </if>
+      <if test="aba011 != null">
+        ABA011,
+      </if>
+      <if test="aba012 != null">
+        ABA012,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aba006 != null">
+        #{aba006,jdbcType=VARCHAR},
+      </if>
+      <if test="aba001 != null">
+        #{aba001,jdbcType=VARCHAR},
+      </if>
+      <if test="aba002 != null">
+        #{aba002,jdbcType=VARCHAR},
+      </if>
+      <if test="aba003 != null">
+        #{aba003,jdbcType=VARCHAR},
+      </if>
+      <if test="aba004 != null">
+        #{aba004,jdbcType=VARCHAR},
+      </if>
+      <if test="aba005 != null">
+        #{aba005,jdbcType=VARCHAR},
+      </if>
+      <if test="aba007 != null">
+        #{aba007,jdbcType=VARCHAR},
+      </if>
+      <if test="aba008 != null">
+        #{aba008,jdbcType=VARCHAR},
+      </if>
+      <if test="aba009 != null">
+        #{aba009,jdbcType=DECIMAL},
+      </if>
+      <if test="aba010 != null">
+        #{aba010,jdbcType=DECIMAL},
+      </if>
+      <if test="aba013 != null">
+        #{aba013,jdbcType=VARCHAR},
+      </if>
+      <if test="aba014 != null">
+        #{aba014,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba015 != null">
+        #{aba015,jdbcType=VARCHAR},
+      </if>
+      <if test="aba016 != null">
+        #{aba016,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba011 != null">
+        #{aba011,jdbcType=CLOB},
+      </if>
+      <if test="aba012 != null">
+        #{aba012,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AB01">
+    update AB01
+    <set>
+      <if test="aba001 != null">
+        ABA001 = #{aba001,jdbcType=VARCHAR},
+      </if>
+      <if test="aba002 != null">
+        ABA002 = #{aba002,jdbcType=VARCHAR},
+      </if>
+      <if test="aba003 != null">
+        ABA003 = #{aba003,jdbcType=VARCHAR},
+      </if>
+      <if test="aba004 != null">
+        ABA004 = #{aba004,jdbcType=VARCHAR},
+      </if>
+      <if test="aba005 != null">
+        ABA005 = #{aba005,jdbcType=VARCHAR},
+      </if>
+      <if test="aba007 != null">
+        ABA007 = #{aba007,jdbcType=VARCHAR},
+      </if>
+      <if test="aba008 != null">
+        ABA008 = #{aba008,jdbcType=VARCHAR},
+      </if>
+      <if test="aba009 != null">
+        ABA009 = #{aba009,jdbcType=DECIMAL},
+      </if>
+      <if test="aba010 != null">
+        ABA010 = #{aba010,jdbcType=DECIMAL},
+      </if>
+      <if test="aba013 != null">
+        ABA013 = #{aba013,jdbcType=VARCHAR},
+      </if>
+      <if test="aba014 != null">
+        ABA014 = #{aba014,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba015 != null">
+        ABA015 = #{aba015,jdbcType=VARCHAR},
+      </if>
+      <if test="aba016 != null">
+        ABA016 = #{aba016,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba011 != null">
+        ABA011 = #{aba011,jdbcType=CLOB},
+      </if>
+      <if test="aba012 != null">
+        ABA012 = #{aba012,jdbcType=CLOB},
+      </if>
+    </set>
+    where ABA006 = #{aba006,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zengqiang.xiaoshuo.model.AB01">
+    update AB01
+    set ABA001 = #{aba001,jdbcType=VARCHAR},
+      ABA002 = #{aba002,jdbcType=VARCHAR},
+      ABA003 = #{aba003,jdbcType=VARCHAR},
+      ABA004 = #{aba004,jdbcType=VARCHAR},
+      ABA005 = #{aba005,jdbcType=VARCHAR},
+      ABA007 = #{aba007,jdbcType=VARCHAR},
+      ABA008 = #{aba008,jdbcType=VARCHAR},
+      ABA009 = #{aba009,jdbcType=DECIMAL},
+      ABA010 = #{aba010,jdbcType=DECIMAL},
+      ABA013 = #{aba013,jdbcType=VARCHAR},
+      ABA014 = #{aba014,jdbcType=TIMESTAMP},
+      ABA015 = #{aba015,jdbcType=VARCHAR},
+      ABA016 = #{aba016,jdbcType=TIMESTAMP},
+      ABA011 = #{aba011,jdbcType=CLOB},
+      ABA012 = #{aba012,jdbcType=CLOB}
+    where ABA006 = #{aba006,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AB01">
+    update AB01
+    set ABA001 = #{aba001,jdbcType=VARCHAR},
+      ABA002 = #{aba002,jdbcType=VARCHAR},
+      ABA003 = #{aba003,jdbcType=VARCHAR},
+      ABA004 = #{aba004,jdbcType=VARCHAR},
+      ABA005 = #{aba005,jdbcType=VARCHAR},
+      ABA007 = #{aba007,jdbcType=VARCHAR},
+      ABA008 = #{aba008,jdbcType=VARCHAR},
+      ABA009 = #{aba009,jdbcType=DECIMAL},
+      ABA010 = #{aba010,jdbcType=DECIMAL},
+      ABA013 = #{aba013,jdbcType=VARCHAR},
+      ABA014 = #{aba014,jdbcType=TIMESTAMP},
+      ABA015 = #{aba015,jdbcType=VARCHAR},
+      ABA016 = #{aba016,jdbcType=TIMESTAMP}
+    where ABA006 = #{aba006,jdbcType=VARCHAR}
+  </update>
+</mapper>

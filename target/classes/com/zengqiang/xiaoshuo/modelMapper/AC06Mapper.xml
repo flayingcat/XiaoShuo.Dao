@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AC06Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AC06">
+    <id column="ACF001" jdbcType="VARCHAR" property="acf001" />
+    <result column="ACF002" jdbcType="VARCHAR" property="acf002" />
+    <result column="ACF003" jdbcType="DECIMAL" property="acf003" />
+    <result column="ACF004" jdbcType="VARCHAR" property="acf004" />
+    <result column="ACF005" jdbcType="VARCHAR" property="acf005" />
+    <result column="ACF006" jdbcType="VARCHAR" property="acf006" />
+    <result column="ACF007" jdbcType="TIMESTAMP" property="acf007" />
+    <result column="ACF008" jdbcType="VARCHAR" property="acf008" />
+    <result column="ACF009" jdbcType="TIMESTAMP" property="acf009" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACF001, ACF002, ACF003, ACF004, ACF005, ACF006, ACF007, ACF008, ACF009
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AC06
+    where ACF001 = #{acf001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AC06
+    where ACF001 = #{acf001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AC06">
+    insert into AC06 (ACF001, ACF002, ACF003, 
+      ACF004, ACF005, ACF006, 
+      ACF007, ACF008, ACF009
+      )
+    values (#{acf001,jdbcType=VARCHAR}, #{acf002,jdbcType=VARCHAR}, #{acf003,jdbcType=DECIMAL}, 
+      #{acf004,jdbcType=VARCHAR}, #{acf005,jdbcType=VARCHAR}, #{acf006,jdbcType=VARCHAR}, 
+      #{acf007,jdbcType=TIMESTAMP}, #{acf008,jdbcType=VARCHAR}, #{acf009,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AC06">
+    insert into AC06
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acf001 != null">
+        ACF001,
+      </if>
+      <if test="acf002 != null">
+        ACF002,
+      </if>
+      <if test="acf003 != null">
+        ACF003,
+      </if>
+      <if test="acf004 != null">
+        ACF004,
+      </if>
+      <if test="acf005 != null">
+        ACF005,
+      </if>
+      <if test="acf006 != null">
+        ACF006,
+      </if>
+      <if test="acf007 != null">
+        ACF007,
+      </if>
+      <if test="acf008 != null">
+        ACF008,
+      </if>
+      <if test="acf009 != null">
+        ACF009,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acf001 != null">
+        #{acf001,jdbcType=VARCHAR},
+      </if>
+      <if test="acf002 != null">
+        #{acf002,jdbcType=VARCHAR},
+      </if>
+      <if test="acf003 != null">
+        #{acf003,jdbcType=DECIMAL},
+      </if>
+      <if test="acf004 != null">
+        #{acf004,jdbcType=VARCHAR},
+      </if>
+      <if test="acf005 != null">
+        #{acf005,jdbcType=VARCHAR},
+      </if>
+      <if test="acf006 != null">
+        #{acf006,jdbcType=VARCHAR},
+      </if>
+      <if test="acf007 != null">
+        #{acf007,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acf008 != null">
+        #{acf008,jdbcType=VARCHAR},
+      </if>
+      <if test="acf009 != null">
+        #{acf009,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AC06">
+    update AC06
+    <set>
+      <if test="acf002 != null">
+        ACF002 = #{acf002,jdbcType=VARCHAR},
+      </if>
+      <if test="acf003 != null">
+        ACF003 = #{acf003,jdbcType=DECIMAL},
+      </if>
+      <if test="acf004 != null">
+        ACF004 = #{acf004,jdbcType=VARCHAR},
+      </if>
+      <if test="acf005 != null">
+        ACF005 = #{acf005,jdbcType=VARCHAR},
+      </if>
+      <if test="acf006 != null">
+        ACF006 = #{acf006,jdbcType=VARCHAR},
+      </if>
+      <if test="acf007 != null">
+        ACF007 = #{acf007,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acf008 != null">
+        ACF008 = #{acf008,jdbcType=VARCHAR},
+      </if>
+      <if test="acf009 != null">
+        ACF009 = #{acf009,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ACF001 = #{acf001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AC06">
+    update AC06
+    set ACF002 = #{acf002,jdbcType=VARCHAR},
+      ACF003 = #{acf003,jdbcType=DECIMAL},
+      ACF004 = #{acf004,jdbcType=VARCHAR},
+      ACF005 = #{acf005,jdbcType=VARCHAR},
+      ACF006 = #{acf006,jdbcType=VARCHAR},
+      ACF007 = #{acf007,jdbcType=TIMESTAMP},
+      ACF008 = #{acf008,jdbcType=VARCHAR},
+      ACF009 = #{acf009,jdbcType=TIMESTAMP}
+    where ACF001 = #{acf001,jdbcType=VARCHAR}
+  </update>
+</mapper>

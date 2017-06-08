@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AE04Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AE04">
+    <id column="AED001" jdbcType="VARCHAR" property="aed001" />
+    <result column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ACA001" jdbcType="VARCHAR" property="aca001" />
+    <result column="AED002" jdbcType="TIMESTAMP" property="aed002" />
+    <result column="AED003" jdbcType="TIMESTAMP" property="aed003" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    AED001, AAA001, ACA001, AED002, AED003
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AE04
+    where AED001 = #{aed001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AE04
+    where AED001 = #{aed001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AE04">
+    insert into AE04 (AED001, AAA001, ACA001, 
+      AED002, AED003)
+    values (#{aed001,jdbcType=VARCHAR}, #{aaa001,jdbcType=VARCHAR}, #{aca001,jdbcType=VARCHAR}, 
+      #{aed002,jdbcType=TIMESTAMP}, #{aed003,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AE04">
+    insert into AE04
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aed001 != null">
+        AED001,
+      </if>
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="aca001 != null">
+        ACA001,
+      </if>
+      <if test="aed002 != null">
+        AED002,
+      </if>
+      <if test="aed003 != null">
+        AED003,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aed001 != null">
+        #{aed001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="aca001 != null">
+        #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="aed002 != null">
+        #{aed002,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aed003 != null">
+        #{aed003,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AE04">
+    update AE04
+    <set>
+      <if test="aaa001 != null">
+        AAA001 = #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="aca001 != null">
+        ACA001 = #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="aed002 != null">
+        AED002 = #{aed002,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aed003 != null">
+        AED003 = #{aed003,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where AED001 = #{aed001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AE04">
+    update AE04
+    set AAA001 = #{aaa001,jdbcType=VARCHAR},
+      ACA001 = #{aca001,jdbcType=VARCHAR},
+      AED002 = #{aed002,jdbcType=TIMESTAMP},
+      AED003 = #{aed003,jdbcType=TIMESTAMP}
+    where AED001 = #{aed001,jdbcType=VARCHAR}
+  </update>
+</mapper>

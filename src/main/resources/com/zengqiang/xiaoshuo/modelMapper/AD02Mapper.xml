@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AD02Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AD02">
+    <result column="ADB001" jdbcType="VARCHAR" property="adb001" />
+    <result column="ACF001" jdbcType="VARCHAR" property="acf001" />
+    <result column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ADB002" jdbcType="TIMESTAMP" property="adb002" />
+  </resultMap>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AD02">
+    insert into AD02 (ADB001, ACF001, AAA001, 
+      ADB002)
+    values (#{adb001,jdbcType=VARCHAR}, #{acf001,jdbcType=VARCHAR}, #{aaa001,jdbcType=VARCHAR}, 
+      #{adb002,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AD02">
+    insert into AD02
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adb001 != null">
+        ADB001,
+      </if>
+      <if test="acf001 != null">
+        ACF001,
+      </if>
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="adb002 != null">
+        ADB002,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adb001 != null">
+        #{adb001,jdbcType=VARCHAR},
+      </if>
+      <if test="acf001 != null">
+        #{acf001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="adb002 != null">
+        #{adb002,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

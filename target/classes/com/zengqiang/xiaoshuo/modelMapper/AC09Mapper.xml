@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AC09Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AC09">
+    <id column="ACI001" jdbcType="VARCHAR" property="aci001" />
+    <result column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ACI002" jdbcType="VARCHAR" property="aci002" />
+    <result column="ACI003" jdbcType="VARCHAR" property="aci003" />
+    <result column="ACI004" jdbcType="VARCHAR" property="aci004" />
+    <result column="ACI005" jdbcType="TIMESTAMP" property="aci005" />
+    <result column="ACI006" jdbcType="VARCHAR" property="aci006" />
+    <result column="ACI007" jdbcType="VARCHAR" property="aci007" />
+    <result column="ACI008" jdbcType="VARCHAR" property="aci008" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACI001, AAA001, ACI002, ACI003, ACI004, ACI005, ACI006, ACI007, ACI008
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AC09
+    where ACI001 = #{aci001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AC09
+    where ACI001 = #{aci001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AC09">
+    insert into AC09 (ACI001, AAA001, ACI002, 
+      ACI003, ACI004, ACI005, 
+      ACI006, ACI007, ACI008
+      )
+    values (#{aci001,jdbcType=VARCHAR}, #{aaa001,jdbcType=VARCHAR}, #{aci002,jdbcType=VARCHAR}, 
+      #{aci003,jdbcType=VARCHAR}, #{aci004,jdbcType=VARCHAR}, #{aci005,jdbcType=TIMESTAMP}, 
+      #{aci006,jdbcType=VARCHAR}, #{aci007,jdbcType=VARCHAR}, #{aci008,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AC09">
+    insert into AC09
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aci001 != null">
+        ACI001,
+      </if>
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="aci002 != null">
+        ACI002,
+      </if>
+      <if test="aci003 != null">
+        ACI003,
+      </if>
+      <if test="aci004 != null">
+        ACI004,
+      </if>
+      <if test="aci005 != null">
+        ACI005,
+      </if>
+      <if test="aci006 != null">
+        ACI006,
+      </if>
+      <if test="aci007 != null">
+        ACI007,
+      </if>
+      <if test="aci008 != null">
+        ACI008,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aci001 != null">
+        #{aci001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="aci002 != null">
+        #{aci002,jdbcType=VARCHAR},
+      </if>
+      <if test="aci003 != null">
+        #{aci003,jdbcType=VARCHAR},
+      </if>
+      <if test="aci004 != null">
+        #{aci004,jdbcType=VARCHAR},
+      </if>
+      <if test="aci005 != null">
+        #{aci005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aci006 != null">
+        #{aci006,jdbcType=VARCHAR},
+      </if>
+      <if test="aci007 != null">
+        #{aci007,jdbcType=VARCHAR},
+      </if>
+      <if test="aci008 != null">
+        #{aci008,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AC09">
+    update AC09
+    <set>
+      <if test="aaa001 != null">
+        AAA001 = #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="aci002 != null">
+        ACI002 = #{aci002,jdbcType=VARCHAR},
+      </if>
+      <if test="aci003 != null">
+        ACI003 = #{aci003,jdbcType=VARCHAR},
+      </if>
+      <if test="aci004 != null">
+        ACI004 = #{aci004,jdbcType=VARCHAR},
+      </if>
+      <if test="aci005 != null">
+        ACI005 = #{aci005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aci006 != null">
+        ACI006 = #{aci006,jdbcType=VARCHAR},
+      </if>
+      <if test="aci007 != null">
+        ACI007 = #{aci007,jdbcType=VARCHAR},
+      </if>
+      <if test="aci008 != null">
+        ACI008 = #{aci008,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACI001 = #{aci001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AC09">
+    update AC09
+    set AAA001 = #{aaa001,jdbcType=VARCHAR},
+      ACI002 = #{aci002,jdbcType=VARCHAR},
+      ACI003 = #{aci003,jdbcType=VARCHAR},
+      ACI004 = #{aci004,jdbcType=VARCHAR},
+      ACI005 = #{aci005,jdbcType=TIMESTAMP},
+      ACI006 = #{aci006,jdbcType=VARCHAR},
+      ACI007 = #{aci007,jdbcType=VARCHAR},
+      ACI008 = #{aci008,jdbcType=VARCHAR}
+    where ACI001 = #{aci001,jdbcType=VARCHAR}
+  </update>
+</mapper>

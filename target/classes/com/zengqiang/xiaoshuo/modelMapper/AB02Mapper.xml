@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AB02Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AB02">
+    <id column="ABB001" jdbcType="VARCHAR" property="abb001" />
+    <result column="ABB002" jdbcType="VARCHAR" property="abb002" />
+    <result column="ABB003" jdbcType="DECIMAL" property="abb003" />
+    <result column="ABB004" jdbcType="VARCHAR" property="abb004" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ABB001, ABB002, ABB003, ABB004
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AB02
+    where ABB001 = #{abb001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AB02
+    where ABB001 = #{abb001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AB02">
+    insert into AB02 (ABB001, ABB002, ABB003, 
+      ABB004)
+    values (#{abb001,jdbcType=VARCHAR}, #{abb002,jdbcType=VARCHAR}, #{abb003,jdbcType=DECIMAL}, 
+      #{abb004,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AB02">
+    insert into AB02
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="abb001 != null">
+        ABB001,
+      </if>
+      <if test="abb002 != null">
+        ABB002,
+      </if>
+      <if test="abb003 != null">
+        ABB003,
+      </if>
+      <if test="abb004 != null">
+        ABB004,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="abb001 != null">
+        #{abb001,jdbcType=VARCHAR},
+      </if>
+      <if test="abb002 != null">
+        #{abb002,jdbcType=VARCHAR},
+      </if>
+      <if test="abb003 != null">
+        #{abb003,jdbcType=DECIMAL},
+      </if>
+      <if test="abb004 != null">
+        #{abb004,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AB02">
+    update AB02
+    <set>
+      <if test="abb002 != null">
+        ABB002 = #{abb002,jdbcType=VARCHAR},
+      </if>
+      <if test="abb003 != null">
+        ABB003 = #{abb003,jdbcType=DECIMAL},
+      </if>
+      <if test="abb004 != null">
+        ABB004 = #{abb004,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ABB001 = #{abb001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AB02">
+    update AB02
+    set ABB002 = #{abb002,jdbcType=VARCHAR},
+      ABB003 = #{abb003,jdbcType=DECIMAL},
+      ABB004 = #{abb004,jdbcType=VARCHAR}
+    where ABB001 = #{abb001,jdbcType=VARCHAR}
+  </update>
+</mapper>

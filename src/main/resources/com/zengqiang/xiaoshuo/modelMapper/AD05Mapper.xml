@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AD05Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AD05">
+    <id column="ADE001" jdbcType="VARCHAR" property="ade001" />
+    <result column="ADE002" jdbcType="VARCHAR" property="ade002" />
+    <result column="ACA001" jdbcType="VARCHAR" property="aca001" />
+    <result column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ADE003" jdbcType="TIMESTAMP" property="ade003" />
+    <result column="ADE004" jdbcType="TIMESTAMP" property="ade004" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ADE001, ADE002, ACA001, AAA001, ADE003, ADE004
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AD05
+    where ADE001 = #{ade001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AD05
+    where ADE001 = #{ade001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AD05">
+    insert into AD05 (ADE001, ADE002, ACA001, 
+      AAA001, ADE003, ADE004
+      )
+    values (#{ade001,jdbcType=VARCHAR}, #{ade002,jdbcType=VARCHAR}, #{aca001,jdbcType=VARCHAR}, 
+      #{aaa001,jdbcType=VARCHAR}, #{ade003,jdbcType=TIMESTAMP}, #{ade004,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AD05">
+    insert into AD05
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ade001 != null">
+        ADE001,
+      </if>
+      <if test="ade002 != null">
+        ADE002,
+      </if>
+      <if test="aca001 != null">
+        ACA001,
+      </if>
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="ade003 != null">
+        ADE003,
+      </if>
+      <if test="ade004 != null">
+        ADE004,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ade001 != null">
+        #{ade001,jdbcType=VARCHAR},
+      </if>
+      <if test="ade002 != null">
+        #{ade002,jdbcType=VARCHAR},
+      </if>
+      <if test="aca001 != null">
+        #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="ade003 != null">
+        #{ade003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ade004 != null">
+        #{ade004,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AD05">
+    update AD05
+    <set>
+      <if test="ade002 != null">
+        ADE002 = #{ade002,jdbcType=VARCHAR},
+      </if>
+      <if test="aca001 != null">
+        ACA001 = #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        AAA001 = #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="ade003 != null">
+        ADE003 = #{ade003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ade004 != null">
+        ADE004 = #{ade004,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ADE001 = #{ade001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AD05">
+    update AD05
+    set ADE002 = #{ade002,jdbcType=VARCHAR},
+      ACA001 = #{aca001,jdbcType=VARCHAR},
+      AAA001 = #{aaa001,jdbcType=VARCHAR},
+      ADE003 = #{ade003,jdbcType=TIMESTAMP},
+      ADE004 = #{ade004,jdbcType=TIMESTAMP}
+    where ADE001 = #{ade001,jdbcType=VARCHAR}
+  </update>
+</mapper>

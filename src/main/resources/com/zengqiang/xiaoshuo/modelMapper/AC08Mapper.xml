@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AC08Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AC08">
+    <id column="ACH001" jdbcType="VARCHAR" property="ach001" />
+    <result column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ACH002" jdbcType="VARCHAR" property="ach002" />
+    <result column="ACH003" jdbcType="VARCHAR" property="ach003" />
+    <result column="ACH004" jdbcType="VARCHAR" property="ach004" />
+    <result column="ACH005" jdbcType="VARCHAR" property="ach005" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACH001, AAA001, ACH002, ACH003, ACH004, ACH005
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AC08
+    where ACH001 = #{ach001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AC08
+    where ACH001 = #{ach001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AC08">
+    insert into AC08 (ACH001, AAA001, ACH002, 
+      ACH003, ACH004, ACH005
+      )
+    values (#{ach001,jdbcType=VARCHAR}, #{aaa001,jdbcType=VARCHAR}, #{ach002,jdbcType=VARCHAR}, 
+      #{ach003,jdbcType=VARCHAR}, #{ach004,jdbcType=VARCHAR}, #{ach005,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AC08">
+    insert into AC08
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ach001 != null">
+        ACH001,
+      </if>
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="ach002 != null">
+        ACH002,
+      </if>
+      <if test="ach003 != null">
+        ACH003,
+      </if>
+      <if test="ach004 != null">
+        ACH004,
+      </if>
+      <if test="ach005 != null">
+        ACH005,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ach001 != null">
+        #{ach001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="ach002 != null">
+        #{ach002,jdbcType=VARCHAR},
+      </if>
+      <if test="ach003 != null">
+        #{ach003,jdbcType=VARCHAR},
+      </if>
+      <if test="ach004 != null">
+        #{ach004,jdbcType=VARCHAR},
+      </if>
+      <if test="ach005 != null">
+        #{ach005,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AC08">
+    update AC08
+    <set>
+      <if test="aaa001 != null">
+        AAA001 = #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="ach002 != null">
+        ACH002 = #{ach002,jdbcType=VARCHAR},
+      </if>
+      <if test="ach003 != null">
+        ACH003 = #{ach003,jdbcType=VARCHAR},
+      </if>
+      <if test="ach004 != null">
+        ACH004 = #{ach004,jdbcType=VARCHAR},
+      </if>
+      <if test="ach005 != null">
+        ACH005 = #{ach005,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACH001 = #{ach001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AC08">
+    update AC08
+    set AAA001 = #{aaa001,jdbcType=VARCHAR},
+      ACH002 = #{ach002,jdbcType=VARCHAR},
+      ACH003 = #{ach003,jdbcType=VARCHAR},
+      ACH004 = #{ach004,jdbcType=VARCHAR},
+      ACH005 = #{ach005,jdbcType=VARCHAR}
+    where ACH001 = #{ach001,jdbcType=VARCHAR}
+  </update>
+</mapper>

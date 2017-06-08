@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AC10Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AC10">
+    <id column="ACJ001" jdbcType="VARCHAR" property="acj001" />
+    <result column="aca001" jdbcType="VARCHAR" property="aca001" />
+    <result column="ACJ002" jdbcType="VARCHAR" property="acj002" />
+    <result column="ACJ003" jdbcType="DECIMAL" property="acj003" />
+    <result column="ACJ004" jdbcType="TIMESTAMP" property="acj004" />
+    <result column="ACJ005" jdbcType="TIMESTAMP" property="acj005" />
+    <result column="ACJ006" jdbcType="VARCHAR" property="acj006" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACJ001, aca001, ACJ002, ACJ003, ACJ004, ACJ005, ACJ006
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AC10
+    where ACJ001 = #{acj001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AC10
+    where ACJ001 = #{acj001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AC10">
+    insert into AC10 (ACJ001, aca001, ACJ002, 
+      ACJ003, ACJ004, ACJ005, 
+      ACJ006)
+    values (#{acj001,jdbcType=VARCHAR}, #{aca001,jdbcType=VARCHAR}, #{acj002,jdbcType=VARCHAR}, 
+      #{acj003,jdbcType=DECIMAL}, #{acj004,jdbcType=TIMESTAMP}, #{acj005,jdbcType=TIMESTAMP}, 
+      #{acj006,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AC10">
+    insert into AC10
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acj001 != null">
+        ACJ001,
+      </if>
+      <if test="aca001 != null">
+        aca001,
+      </if>
+      <if test="acj002 != null">
+        ACJ002,
+      </if>
+      <if test="acj003 != null">
+        ACJ003,
+      </if>
+      <if test="acj004 != null">
+        ACJ004,
+      </if>
+      <if test="acj005 != null">
+        ACJ005,
+      </if>
+      <if test="acj006 != null">
+        ACJ006,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acj001 != null">
+        #{acj001,jdbcType=VARCHAR},
+      </if>
+      <if test="aca001 != null">
+        #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="acj002 != null">
+        #{acj002,jdbcType=VARCHAR},
+      </if>
+      <if test="acj003 != null">
+        #{acj003,jdbcType=DECIMAL},
+      </if>
+      <if test="acj004 != null">
+        #{acj004,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acj005 != null">
+        #{acj005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acj006 != null">
+        #{acj006,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AC10">
+    update AC10
+    <set>
+      <if test="aca001 != null">
+        aca001 = #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="acj002 != null">
+        ACJ002 = #{acj002,jdbcType=VARCHAR},
+      </if>
+      <if test="acj003 != null">
+        ACJ003 = #{acj003,jdbcType=DECIMAL},
+      </if>
+      <if test="acj004 != null">
+        ACJ004 = #{acj004,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acj005 != null">
+        ACJ005 = #{acj005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acj006 != null">
+        ACJ006 = #{acj006,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACJ001 = #{acj001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AC10">
+    update AC10
+    set aca001 = #{aca001,jdbcType=VARCHAR},
+      ACJ002 = #{acj002,jdbcType=VARCHAR},
+      ACJ003 = #{acj003,jdbcType=DECIMAL},
+      ACJ004 = #{acj004,jdbcType=TIMESTAMP},
+      ACJ005 = #{acj005,jdbcType=TIMESTAMP},
+      ACJ006 = #{acj006,jdbcType=VARCHAR}
+    where ACJ001 = #{acj001,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AD08Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AD08">
+    <id column="ADH001" jdbcType="VARCHAR" property="adh001" />
+    <result column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ABH001" jdbcType="VARCHAR" property="abh001" />
+    <result column="ADH002" jdbcType="VARCHAR" property="adh002" />
+    <result column="ADH003" jdbcType="TIMESTAMP" property="adh003" />
+    <result column="ADH004" jdbcType="VARCHAR" property="adh004" />
+    <result column="ADH005" jdbcType="TIMESTAMP" property="adh005" />
+    <result column="ABA005" jdbcType="VARCHAR" property="aba005" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ADH001, AAA001, ABH001, ADH002, ADH003, ADH004, ADH005, ABA005
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AD08
+    where ADH001 = #{adh001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AD08
+    where ADH001 = #{adh001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AD08">
+    insert into AD08 (ADH001, AAA001, ABH001, 
+      ADH002, ADH003, ADH004, 
+      ADH005, ABA005)
+    values (#{adh001,jdbcType=VARCHAR}, #{aaa001,jdbcType=VARCHAR}, #{abh001,jdbcType=VARCHAR}, 
+      #{adh002,jdbcType=VARCHAR}, #{adh003,jdbcType=TIMESTAMP}, #{adh004,jdbcType=VARCHAR}, 
+      #{adh005,jdbcType=TIMESTAMP}, #{aba005,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AD08">
+    insert into AD08
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adh001 != null">
+        ADH001,
+      </if>
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="abh001 != null">
+        ABH001,
+      </if>
+      <if test="adh002 != null">
+        ADH002,
+      </if>
+      <if test="adh003 != null">
+        ADH003,
+      </if>
+      <if test="adh004 != null">
+        ADH004,
+      </if>
+      <if test="adh005 != null">
+        ADH005,
+      </if>
+      <if test="aba005 != null">
+        ABA005,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adh001 != null">
+        #{adh001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="abh001 != null">
+        #{abh001,jdbcType=VARCHAR},
+      </if>
+      <if test="adh002 != null">
+        #{adh002,jdbcType=VARCHAR},
+      </if>
+      <if test="adh003 != null">
+        #{adh003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adh004 != null">
+        #{adh004,jdbcType=VARCHAR},
+      </if>
+      <if test="adh005 != null">
+        #{adh005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba005 != null">
+        #{aba005,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AD08">
+    update AD08
+    <set>
+      <if test="aaa001 != null">
+        AAA001 = #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="abh001 != null">
+        ABH001 = #{abh001,jdbcType=VARCHAR},
+      </if>
+      <if test="adh002 != null">
+        ADH002 = #{adh002,jdbcType=VARCHAR},
+      </if>
+      <if test="adh003 != null">
+        ADH003 = #{adh003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adh004 != null">
+        ADH004 = #{adh004,jdbcType=VARCHAR},
+      </if>
+      <if test="adh005 != null">
+        ADH005 = #{adh005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba005 != null">
+        ABA005 = #{aba005,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ADH001 = #{adh001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AD08">
+    update AD08
+    set AAA001 = #{aaa001,jdbcType=VARCHAR},
+      ABH001 = #{abh001,jdbcType=VARCHAR},
+      ADH002 = #{adh002,jdbcType=VARCHAR},
+      ADH003 = #{adh003,jdbcType=TIMESTAMP},
+      ADH004 = #{adh004,jdbcType=VARCHAR},
+      ADH005 = #{adh005,jdbcType=TIMESTAMP},
+      ABA005 = #{aba005,jdbcType=VARCHAR}
+    where ADH001 = #{adh001,jdbcType=VARCHAR}
+  </update>
+</mapper>

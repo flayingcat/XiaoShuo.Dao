@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.modelMapper.AB02.Entity">
+  
+  <sql id="Base_Column_List">
+    ABB001, ABB002, ABB003, ABB004
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AB02
+    where ABB001 = #{id,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

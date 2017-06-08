@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AA03Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AA03">
+    <id column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ABA005" jdbcType="VARCHAR" property="aba005" />
+    <result column="AAA002" jdbcType="VARCHAR" property="aaa002" />
+    <result column="AAC005" jdbcType="VARCHAR" property="aac005" />
+    <result column="AAA004" jdbcType="VARCHAR" property="aaa004" />
+    <result column="AAA003" jdbcType="TIMESTAMP" property="aaa003" />
+    <result column="AAC006" jdbcType="TIMESTAMP" property="aac006" />
+    <result column="ABB001" jdbcType="VARCHAR" property="abb001" />
+    <result column="AAA006" jdbcType="VARCHAR" property="aaa006" />
+    <result column="AAA007" jdbcType="DECIMAL" property="aaa007" />
+    <result column="AAA011" jdbcType="VARCHAR" property="aaa011" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    AAA001, ABA005, AAA002, AAC005, AAA004, AAA003, AAC006, ABB001, AAA006, AAA007, AAA011
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AA03
+    where AAA001 = #{aaa001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AA03
+    where AAA001 = #{aaa001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AA03">
+    insert into AA03 (AAA001, ABA005, AAA002, 
+      AAC005, AAA004, AAA003, 
+      AAC006, ABB001, AAA006, 
+      AAA007, AAA011)
+    values (#{aaa001,jdbcType=VARCHAR}, #{aba005,jdbcType=VARCHAR}, #{aaa002,jdbcType=VARCHAR}, 
+      #{aac005,jdbcType=VARCHAR}, #{aaa004,jdbcType=VARCHAR}, #{aaa003,jdbcType=TIMESTAMP}, 
+      #{aac006,jdbcType=TIMESTAMP}, #{abb001,jdbcType=VARCHAR}, #{aaa006,jdbcType=VARCHAR}, 
+      #{aaa007,jdbcType=DECIMAL}, #{aaa011,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AA03">
+    insert into AA03
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="aba005 != null">
+        ABA005,
+      </if>
+      <if test="aaa002 != null">
+        AAA002,
+      </if>
+      <if test="aac005 != null">
+        AAC005,
+      </if>
+      <if test="aaa004 != null">
+        AAA004,
+      </if>
+      <if test="aaa003 != null">
+        AAA003,
+      </if>
+      <if test="aac006 != null">
+        AAC006,
+      </if>
+      <if test="abb001 != null">
+        ABB001,
+      </if>
+      <if test="aaa006 != null">
+        AAA006,
+      </if>
+      <if test="aaa007 != null">
+        AAA007,
+      </if>
+      <if test="aaa011 != null">
+        AAA011,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="aba005 != null">
+        #{aba005,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa002 != null">
+        #{aaa002,jdbcType=VARCHAR},
+      </if>
+      <if test="aac005 != null">
+        #{aac005,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa004 != null">
+        #{aaa004,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa003 != null">
+        #{aaa003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aac006 != null">
+        #{aac006,jdbcType=TIMESTAMP},
+      </if>
+      <if test="abb001 != null">
+        #{abb001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa006 != null">
+        #{aaa006,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa007 != null">
+        #{aaa007,jdbcType=DECIMAL},
+      </if>
+      <if test="aaa011 != null">
+        #{aaa011,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AA03">
+    update AA03
+    <set>
+      <if test="aba005 != null">
+        ABA005 = #{aba005,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa002 != null">
+        AAA002 = #{aaa002,jdbcType=VARCHAR},
+      </if>
+      <if test="aac005 != null">
+        AAC005 = #{aac005,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa004 != null">
+        AAA004 = #{aaa004,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa003 != null">
+        AAA003 = #{aaa003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aac006 != null">
+        AAC006 = #{aac006,jdbcType=TIMESTAMP},
+      </if>
+      <if test="abb001 != null">
+        ABB001 = #{abb001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa006 != null">
+        AAA006 = #{aaa006,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa007 != null">
+        AAA007 = #{aaa007,jdbcType=DECIMAL},
+      </if>
+      <if test="aaa011 != null">
+        AAA011 = #{aaa011,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AAA001 = #{aaa001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AA03">
+    update AA03
+    set ABA005 = #{aba005,jdbcType=VARCHAR},
+      AAA002 = #{aaa002,jdbcType=VARCHAR},
+      AAC005 = #{aac005,jdbcType=VARCHAR},
+      AAA004 = #{aaa004,jdbcType=VARCHAR},
+      AAA003 = #{aaa003,jdbcType=TIMESTAMP},
+      AAC006 = #{aac006,jdbcType=TIMESTAMP},
+      ABB001 = #{abb001,jdbcType=VARCHAR},
+      AAA006 = #{aaa006,jdbcType=VARCHAR},
+      AAA007 = #{aaa007,jdbcType=DECIMAL},
+      AAA011 = #{aaa011,jdbcType=VARCHAR}
+    where AAA001 = #{aaa001,jdbcType=VARCHAR}
+  </update>
+</mapper>

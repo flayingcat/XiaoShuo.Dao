@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AD06Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AD06">
+    <id column="ADF001" jdbcType="VARCHAR" property="adf001" />
+    <result column="ABH001" jdbcType="VARCHAR" property="abh001" />
+    <result column="ADF002" jdbcType="VARCHAR" property="adf002" />
+    <result column="ADF003" jdbcType="VARCHAR" property="adf003" />
+    <result column="ADF004" jdbcType="TIMESTAMP" property="adf004" />
+    <result column="ADF005" jdbcType="VARCHAR" property="adf005" />
+    <result column="ADF006" jdbcType="TIMESTAMP" property="adf006" />
+    <result column="ABA005" jdbcType="VARCHAR" property="aba005" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ADF001, ABH001, ADF002, ADF003, ADF004, ADF005, ADF006, ABA005
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AD06
+    where ADF001 = #{adf001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AD06
+    where ADF001 = #{adf001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AD06">
+    insert into AD06 (ADF001, ABH001, ADF002, 
+      ADF003, ADF004, ADF005, 
+      ADF006, ABA005)
+    values (#{adf001,jdbcType=VARCHAR}, #{abh001,jdbcType=VARCHAR}, #{adf002,jdbcType=VARCHAR}, 
+      #{adf003,jdbcType=VARCHAR}, #{adf004,jdbcType=TIMESTAMP}, #{adf005,jdbcType=VARCHAR}, 
+      #{adf006,jdbcType=TIMESTAMP}, #{aba005,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AD06">
+    insert into AD06
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adf001 != null">
+        ADF001,
+      </if>
+      <if test="abh001 != null">
+        ABH001,
+      </if>
+      <if test="adf002 != null">
+        ADF002,
+      </if>
+      <if test="adf003 != null">
+        ADF003,
+      </if>
+      <if test="adf004 != null">
+        ADF004,
+      </if>
+      <if test="adf005 != null">
+        ADF005,
+      </if>
+      <if test="adf006 != null">
+        ADF006,
+      </if>
+      <if test="aba005 != null">
+        ABA005,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adf001 != null">
+        #{adf001,jdbcType=VARCHAR},
+      </if>
+      <if test="abh001 != null">
+        #{abh001,jdbcType=VARCHAR},
+      </if>
+      <if test="adf002 != null">
+        #{adf002,jdbcType=VARCHAR},
+      </if>
+      <if test="adf003 != null">
+        #{adf003,jdbcType=VARCHAR},
+      </if>
+      <if test="adf004 != null">
+        #{adf004,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adf005 != null">
+        #{adf005,jdbcType=VARCHAR},
+      </if>
+      <if test="adf006 != null">
+        #{adf006,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba005 != null">
+        #{aba005,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AD06">
+    update AD06
+    <set>
+      <if test="abh001 != null">
+        ABH001 = #{abh001,jdbcType=VARCHAR},
+      </if>
+      <if test="adf002 != null">
+        ADF002 = #{adf002,jdbcType=VARCHAR},
+      </if>
+      <if test="adf003 != null">
+        ADF003 = #{adf003,jdbcType=VARCHAR},
+      </if>
+      <if test="adf004 != null">
+        ADF004 = #{adf004,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adf005 != null">
+        ADF005 = #{adf005,jdbcType=VARCHAR},
+      </if>
+      <if test="adf006 != null">
+        ADF006 = #{adf006,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aba005 != null">
+        ABA005 = #{aba005,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ADF001 = #{adf001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AD06">
+    update AD06
+    set ABH001 = #{abh001,jdbcType=VARCHAR},
+      ADF002 = #{adf002,jdbcType=VARCHAR},
+      ADF003 = #{adf003,jdbcType=VARCHAR},
+      ADF004 = #{adf004,jdbcType=TIMESTAMP},
+      ADF005 = #{adf005,jdbcType=VARCHAR},
+      ADF006 = #{adf006,jdbcType=TIMESTAMP},
+      ABA005 = #{aba005,jdbcType=VARCHAR}
+    where ADF001 = #{adf001,jdbcType=VARCHAR}
+  </update>
+</mapper>

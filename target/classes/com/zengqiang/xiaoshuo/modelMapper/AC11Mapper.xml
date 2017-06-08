@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AC11Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AC11">
+    <id column="ACK001" jdbcType="VARCHAR" property="ack001" />
+    <result column="ACJ001" jdbcType="VARCHAR" property="acj001" />
+    <result column="ACK002" jdbcType="VARCHAR" property="ack002" />
+    <result column="ACK003" jdbcType="TIMESTAMP" property="ack003" />
+    <result column="ACK004" jdbcType="DECIMAL" property="ack004" />
+    <result column="ACK005" jdbcType="TIMESTAMP" property="ack005" />
+    <result column="ACK006" jdbcType="VARCHAR" property="ack006" />
+    <result column="ACK007" jdbcType="VARCHAR" property="ack007" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACK001, ACJ001, ACK002, ACK003, ACK004, ACK005, ACK006, ACK007
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AC11
+    where ACK001 = #{ack001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AC11
+    where ACK001 = #{ack001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AC11">
+    insert into AC11 (ACK001, ACJ001, ACK002, 
+      ACK003, ACK004, ACK005, 
+      ACK006, ACK007)
+    values (#{ack001,jdbcType=VARCHAR}, #{acj001,jdbcType=VARCHAR}, #{ack002,jdbcType=VARCHAR}, 
+      #{ack003,jdbcType=TIMESTAMP}, #{ack004,jdbcType=DECIMAL}, #{ack005,jdbcType=TIMESTAMP}, 
+      #{ack006,jdbcType=VARCHAR}, #{ack007,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AC11">
+    insert into AC11
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ack001 != null">
+        ACK001,
+      </if>
+      <if test="acj001 != null">
+        ACJ001,
+      </if>
+      <if test="ack002 != null">
+        ACK002,
+      </if>
+      <if test="ack003 != null">
+        ACK003,
+      </if>
+      <if test="ack004 != null">
+        ACK004,
+      </if>
+      <if test="ack005 != null">
+        ACK005,
+      </if>
+      <if test="ack006 != null">
+        ACK006,
+      </if>
+      <if test="ack007 != null">
+        ACK007,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ack001 != null">
+        #{ack001,jdbcType=VARCHAR},
+      </if>
+      <if test="acj001 != null">
+        #{acj001,jdbcType=VARCHAR},
+      </if>
+      <if test="ack002 != null">
+        #{ack002,jdbcType=VARCHAR},
+      </if>
+      <if test="ack003 != null">
+        #{ack003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ack004 != null">
+        #{ack004,jdbcType=DECIMAL},
+      </if>
+      <if test="ack005 != null">
+        #{ack005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ack006 != null">
+        #{ack006,jdbcType=VARCHAR},
+      </if>
+      <if test="ack007 != null">
+        #{ack007,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AC11">
+    update AC11
+    <set>
+      <if test="acj001 != null">
+        ACJ001 = #{acj001,jdbcType=VARCHAR},
+      </if>
+      <if test="ack002 != null">
+        ACK002 = #{ack002,jdbcType=VARCHAR},
+      </if>
+      <if test="ack003 != null">
+        ACK003 = #{ack003,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ack004 != null">
+        ACK004 = #{ack004,jdbcType=DECIMAL},
+      </if>
+      <if test="ack005 != null">
+        ACK005 = #{ack005,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ack006 != null">
+        ACK006 = #{ack006,jdbcType=VARCHAR},
+      </if>
+      <if test="ack007 != null">
+        ACK007 = #{ack007,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACK001 = #{ack001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AC11">
+    update AC11
+    set ACJ001 = #{acj001,jdbcType=VARCHAR},
+      ACK002 = #{ack002,jdbcType=VARCHAR},
+      ACK003 = #{ack003,jdbcType=TIMESTAMP},
+      ACK004 = #{ack004,jdbcType=DECIMAL},
+      ACK005 = #{ack005,jdbcType=TIMESTAMP},
+      ACK006 = #{ack006,jdbcType=VARCHAR},
+      ACK007 = #{ack007,jdbcType=VARCHAR}
+    where ACK001 = #{ack001,jdbcType=VARCHAR}
+  </update>
+</mapper>

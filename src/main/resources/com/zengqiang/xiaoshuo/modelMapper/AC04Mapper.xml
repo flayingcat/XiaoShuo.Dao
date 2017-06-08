@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zengqiang.xiaoshuo.dao.AC04Mapper">
+  <resultMap id="BaseResultMap" type="com.zengqiang.xiaoshuo.model.AC04">
+    <id column="ACD001" jdbcType="VARCHAR" property="acd001" />
+    <result column="AAA001" jdbcType="VARCHAR" property="aaa001" />
+    <result column="ACA001" jdbcType="VARCHAR" property="aca001" />
+    <result column="ACD002" jdbcType="VARCHAR" property="acd002" />
+    <result column="ACD004" jdbcType="TIMESTAMP" property="acd004" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zengqiang.xiaoshuo.model.AC04">
+    <result column="ACD003" jdbcType="CLOB" property="acd003" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ACD001, AAA001, ACA001, ACD002, ACD004
+  </sql>
+  <sql id="Blob_Column_List">
+    ACD003
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from AC04
+    where ACD001 = #{acd001,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AC04
+    where ACD001 = #{acd001,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zengqiang.xiaoshuo.model.AC04">
+    insert into AC04 (ACD001, AAA001, ACA001, 
+      ACD002, ACD004, ACD003
+      )
+    values (#{acd001,jdbcType=VARCHAR}, #{aaa001,jdbcType=VARCHAR}, #{aca001,jdbcType=VARCHAR}, 
+      #{acd002,jdbcType=VARCHAR}, #{acd004,jdbcType=TIMESTAMP}, #{acd003,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zengqiang.xiaoshuo.model.AC04">
+    insert into AC04
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acd001 != null">
+        ACD001,
+      </if>
+      <if test="aaa001 != null">
+        AAA001,
+      </if>
+      <if test="aca001 != null">
+        ACA001,
+      </if>
+      <if test="acd002 != null">
+        ACD002,
+      </if>
+      <if test="acd004 != null">
+        ACD004,
+      </if>
+      <if test="acd003 != null">
+        ACD003,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acd001 != null">
+        #{acd001,jdbcType=VARCHAR},
+      </if>
+      <if test="aaa001 != null">
+        #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="aca001 != null">
+        #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="acd002 != null">
+        #{acd002,jdbcType=VARCHAR},
+      </if>
+      <if test="acd004 != null">
+        #{acd004,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acd003 != null">
+        #{acd003,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zengqiang.xiaoshuo.model.AC04">
+    update AC04
+    <set>
+      <if test="aaa001 != null">
+        AAA001 = #{aaa001,jdbcType=VARCHAR},
+      </if>
+      <if test="aca001 != null">
+        ACA001 = #{aca001,jdbcType=VARCHAR},
+      </if>
+      <if test="acd002 != null">
+        ACD002 = #{acd002,jdbcType=VARCHAR},
+      </if>
+      <if test="acd004 != null">
+        ACD004 = #{acd004,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acd003 != null">
+        ACD003 = #{acd003,jdbcType=CLOB},
+      </if>
+    </set>
+    where ACD001 = #{acd001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zengqiang.xiaoshuo.model.AC04">
+    update AC04
+    set AAA001 = #{aaa001,jdbcType=VARCHAR},
+      ACA001 = #{aca001,jdbcType=VARCHAR},
+      ACD002 = #{acd002,jdbcType=VARCHAR},
+      ACD004 = #{acd004,jdbcType=TIMESTAMP},
+      ACD003 = #{acd003,jdbcType=CLOB}
+    where ACD001 = #{acd001,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zengqiang.xiaoshuo.model.AC04">
+    update AC04
+    set AAA001 = #{aaa001,jdbcType=VARCHAR},
+      ACA001 = #{aca001,jdbcType=VARCHAR},
+      ACD002 = #{acd002,jdbcType=VARCHAR},
+      ACD004 = #{acd004,jdbcType=TIMESTAMP}
+    where ACD001 = #{acd001,jdbcType=VARCHAR}
+  </update>
+</mapper>
