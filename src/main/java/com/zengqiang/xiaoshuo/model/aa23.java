@@ -9,4 +9,7 @@ package com.zengqiang.xiaoshuo.model;/**
  * @create 2017-06-14 17:08
  **/
 public class aa23 {
+    public static void main(String[] args) {
+        
+    }
 }
